@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Views.SettingsPage">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="StartAndExpand" Padding="10,0,10,10">
+      <TableView Intent="Settings">
+        <TableView.Resources>
+          <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+              <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+              <Setter Property="FontSize" Value="16"/>
+              <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+              <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+              <Setter Property="FontSize" Value="16"/>
+              <Setter Property="TextColor" Value="White"/>
+              <Setter Property="BackgroundColor" Value="{StaticResource tertiaryColor}"/>
+              <Setter Property="BorderWidth" Value="2"/>
+              <Setter Property="BorderColor" Value="{StaticResource primaryColor}"/>
+            </Style>
+          </ResourceDictionary>
+        </TableView.Resources>
+        <TableRoot>
+          <TableSection Title="CRM Database">
+            <EntryCell Label="CRM URL" />
+            <EntryCell Label="CRM Username" />
+            <EntryCell Label="CRM Password" />
+            <SwitchCell Text="Notifications Enabled" />
+            <SwitchCell Text="Is Demo" />
+          </TableSection>
+          <TableSection Title="Themes">
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.4*" />
+                  <ColumnDefinition Width="0.2*" />
+                  <ColumnDefinition Width="0.1*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Main Background Color"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+                <Picker x:Name="backgroundColorPicker" Grid.Column="2" HorizontalOptions="FillAndExpand" SelectedIndexChanged="backgroundColorPicker_SelectedIndexChanged" />
+                <BoxView Grid.Column="3" Color="#cccccc"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.4*" />
+                  <ColumnDefinition Width="0.2*" />
+                  <ColumnDefinition Width="0.1*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Sub Item Color"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+                <Picker x:Name="subItemColorPicker" Grid.Column="2" HorizontalOptions="FillAndExpand" SelectedIndexChanged="subItemColorPicker_SelectedIndexChanged" />
+                <BoxView Grid.Column="3" Color="#cccccc"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.4*" />
+                  <ColumnDefinition Width="0.2*" />
+                  <ColumnDefinition Width="0.1*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Inner Color"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+                <Picker x:Name="innerColorPicker" Grid.Column="2" HorizontalOptions="FillAndExpand" SelectedIndexChanged="innerColorPicker_SelectedIndexChanged" />
+                <BoxView Grid.Column="3" Color="#cccccc"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.4*" />
+                  <ColumnDefinition Width="0.2*" />
+                  <ColumnDefinition Width="0.1*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Foreground Color"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+                <Picker x:Name="foregroundColorPicker" Grid.Column="2" HorizontalOptions="FillAndExpand" SelectedIndexChanged="foregroundColorPicker_SelectedIndexChanged" />
+                <BoxView Grid.Column="3" Color="#cccccc"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Reset Theme"/>
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" Text="Reset" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+          </TableSection>
+          <TableSection Title="Configuration">
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Currency Symbol"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Currency Format"/>
+                <Entry Grid.Column="1" HorizontalOptions="FillAndExpand"/>
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Panel State Duration (ms)"/>
+                <Picker Grid.Column="1" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Audio Recording Limit (s)"/>
+                <Picker Grid.Column="1" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Comments Limit (characters)"/>
+                <Picker Grid.Column="1" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="App Logo"/>
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" Text="Select an image" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.7*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Offline Database"/>
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" Text="Select an excel file" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+            <ViewCell>
+              <Grid Padding="5,5,5,5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="0.3*" />
+                  <ColumnDefinition Width="0.35*" />
+                  <ColumnDefinition Width="0.35*" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Text="Error Log"/>
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="1" Text="Show log" HorizontalOptions="FillAndExpand" />
+                <Button Style="{StaticResource ButtonStyle}" Grid.Column="2" Text="Reset" HorizontalOptions="FillAndExpand" />
+              </Grid>
+            </ViewCell>
+          </TableSection>
+        </TableRoot>
+      </TableView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+                        x:Class="BPAAS_AutoApp.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <Color x:Key="primaryColor">#00b388</Color>
+      <Color x:Key="secondaryColor">#425563</Color>
+      <Color x:Key="tertiaryColor">#5F7A76</Color>
+      <Color x:Key="backgroundColor">#f2f2f2</Color>
+      <x:String x:Key="MetricWebRegular">/Assets/Fonts/MetricWeb-Regular.ttf#Metric Web</x:String>
+      <x:String x:Key="MetricWebMedium">/Assets/Fonts/MetricWeb-Medium.ttf#Metric Web</x:String>
+      <x:String x:Key="MetricWebLight">/Assets/Fonts/MetricWeb-Light.ttf#Metric Web</x:String>
+      <x:String x:Key="MetricWebSemiBold">/Assets/Fonts/MetricWeb-SemiBold.ttf#Metric Web</x:String>
+      <x:String x:Key="HPBPAASIcons">/Assets/Fonts/fontawesome-webfont.ttf#fontawesome-webfont</x:String>
+      <x:String x:Key="SegoeIcons">Segoe MDL2 Assets</x:String>
+      <Style x:Key="buttonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource primaryColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource MetricWebRegular}" />
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      <Style x:Key="iconButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BorderWidth" Value="0" />
+      </Style>
+      <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="{StaticResource SegoeIcons}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BorderWidth" Value="0" />
+      </Style>
+      <Style x:Key="LogoTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MetricWebSemiBold}" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+      </Style>
+      <ControlTemplate x:Key="MainTemplate">
+        <Grid RowSpacing="0" BackgroundColor="{StaticResource backgroundColor}">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Frame Grid.Row="0" BackgroundColor="{StaticResource primaryColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,20,0">
+            <StackLayout Orientation="Horizontal" Spacing="10" Margin="48,0,0,0">
+              <Image Source="menulogo.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="25" />
+              <Label Text="Mobile Customer Service" Style="{StaticResource LogoTitleStyle}" />
+            </StackLayout>
+          </Frame>
+          <ContentPresenter Grid.Row="1" />
+        </Grid>
+      </ControlTemplate>
+    </ResourceDictionary>
+  </Application.Resources>
+</prism:PrismApplication>

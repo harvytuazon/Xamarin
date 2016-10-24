@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Views.SignInPage">
+  <AbsoluteLayout>
+    <Image Source="hpewall.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+    <Frame AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{StaticResource tertiaryColor}" Opacity="0.5"/>
+    <Image Source="hpe_logo_ctr_wht.png" Aspect="AspectFit" AbsoluteLayout.LayoutBounds="0.5,2,100,100" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+    <Frame AbsoluteLayout.LayoutBounds="0.5,0.5,500,400" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="{StaticResource secondaryColor}" Opacity="0.9" HasShadow="True"/>
+    <Grid AbsoluteLayout.LayoutBounds="0.5,0.5,500,400" AbsoluteLayout.LayoutFlags="PositionProportional">
+
+    </Grid>
+  </AbsoluteLayout>
+</ContentPage>

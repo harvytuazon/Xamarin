@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Controls.ContactListControl">
+  <ContentView.Content>
+    <StackLayout WidthRequest="300">
+      <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.Resources>
+          <ResourceDictionary>
+            <Style x:Key="SwimLaneTitleStyle" TargetType="Label">
+              <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+              <Setter Property="FontSize" Value="36"/>
+              <Setter Property="TextColor" Value="#555555"/>
+              <Setter Property="VerticalTextAlignment" Value="End"/>
+              <Setter Property="Margin" Value="0,0,0,1"/>
+            </Style>
+          </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="SwimLaneTitle" Style="{StaticResource SwimLaneTitleStyle}"/>
+        <StackLayout Grid.Row="1" Padding="2" BackgroundColor="#CCCCCC">
+          <ListView x:Name="ItemList">
+            <ListView.Resources>
+              <ResourceDictionary>
+                <Style x:Key="TitleStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+                  <Setter Property="FontSize" Value="20"/>
+                  <Setter Property="TextColor" Value="Black"/>
+                </Style>
+                <Style x:Key="DescriptionStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+                  <Setter Property="FontSize" Value="14"/>
+                  <Setter Property="TextColor" Value="#555555"/>
+                </Style>
+                <Style x:Key="IconStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}"/>
+                  <Setter Property="FontSize" Value="14"/>
+                  <Setter Property="TextColor" Value="{StaticResource primaryColor}"/>
+                  <Setter Property="VerticalOptions" Value="Center"/>
+                  <Setter Property="HorizontalOptions" Value="Center"/>
+                </Style>
+                <Style x:Key="BadgeStyle" TargetType="Button">
+                  <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}"/>
+                  <Setter Property="FontSize" Value="11"/>
+                  <Setter Property="TextColor" Value="White"/>
+                  <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                  <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                  <Setter Property="BackgroundColor" Value="{StaticResource tertiaryColor}"/>
+                  <Setter Property="BorderWidth" Value="0"/>
+                </Style>
+                <Style x:Key="ImageStyle" TargetType="custom:CircleImage">
+                  <Setter Property="Aspect" Value="AspectFill"/>
+                  <Setter Property="BorderThickness" Value="2"/>
+                  <Setter Property="BorderColor" Value="{StaticResource primaryColor}"/>
+                  <Setter Property="HeightRequest" Value="55"/>
+                  <Setter Property="WidthRequest" Value="55"/>
+                  <Setter Property="VerticalOptions" Value="Center"/>
+                  <Setter Property="HorizontalOptions" Value="Center"/>
+                </Style>
+              </ResourceDictionary>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <StackLayout Padding="2">
+                    <Grid BackgroundColor="White" ColumnSpacing="2" RowSpacing="3">
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="40"/>
+                      </Grid.RowDefinitions>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="65"/>
+                      </Grid.ColumnDefinitions>
+                      <custom:CircleImage Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource ImageStyle}" Source="{Binding Image}"/>
+                      <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" Style="{StaticResource TitleStyle}" VerticalOptions="End"/>
+                      <StackLayout Grid.Column="1" Grid.Row="1" Spacing="1">
+                        <StackLayout VerticalOptions="Center" Orientation="Horizontal">
+                          <Label Text="&#xf095;" Style="{StaticResource IconStyle}"/>
+                          <Label Text="{Binding PhoneNumber}" Style="{StaticResource DescriptionStyle}" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Grid.Row="2" VerticalOptions="Center" Orientation="Horizontal">
+                          <Label Text="&#xf017;" Style="{StaticResource IconStyle}"/>
+                          <Label Text="{Binding Timestamp}" Style="{StaticResource DescriptionStyle}" />
+                        </StackLayout>
+                      </StackLayout>
+                      <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="2" ColumnSpacing="1" RowSpacing="1">
+                        <Grid.RowDefinitions>
+                          <RowDefinition Height="*"/>
+                          <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="*"/>
+                          <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Grid.Row="0" Text="&#xf005;" Style="{StaticResource BadgeStyle}" TextColor="Yellow" />
+                        <Button Grid.Column="0" Grid.Row="1" Text="&#xf1e0;" Style="{StaticResource BadgeStyle}"/>
+                        <Button Grid.Column="1" Grid.Row="0" Text="&#xf0ad;" Style="{StaticResource BadgeStyle}"/>
+                        <Button Grid.Column="1" Grid.Row="1" Text="&#xf08d;" Style="{StaticResource BadgeStyle}"/>
+                      </Grid>
+                    </Grid>
+                  </StackLayout>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>

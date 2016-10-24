@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:BPAAS_AutoApp.Controls;assembly=BPAAS_AutoApp"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Views.Customer360Page"
+             NavigationPage.HasNavigationBar="False">
+  <ContentPage.Content>
+    <AbsoluteLayout>
+      <ContentView ControlTemplate="{StaticResource MainTemplate}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <ScrollView x:Name="ScrollBase" Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="48,0,0,0">
+          <StackLayout x:Name="StackBase" Orientation="Horizontal" Padding="25,20,25,25" Spacing="20">
+            <control:ContactInfoControl SwimLaneTitleText="Contact Information"/>
+            <control:ImageDetailListControl SwimLaneTitleText="Vehicles"/>
+            <control:AltImageDetailListControl SwimLaneTitleText="Cars"/>
+            <control:IconDetailListControl SwimLaneTitleText="Alerts"/>
+            <control:ContactListControl SwimLaneTitleText="Checkin"/>
+            <control:ContactInfoControl SwimLaneTitleText="Vendor Information" Collapsed="True"/>
+            <control:TreeListControl SwimLaneTitleText="Promotion"/>
+          </StackLayout>
+        </ScrollView>
+      </ContentView>
+      <StackLayout AbsoluteLayout.LayoutBounds="0,0,255,1" AbsoluteLayout.LayoutFlags="PositionProportional, HeightProportional">
+        <control:NavigationPaneControl HorizontalOptions="Start" VerticalOptions="FillAndExpand"/>
+      </StackLayout>
+    </AbsoluteLayout>
+  </ContentPage.Content>
+</ContentPage>

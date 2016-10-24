@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:BPAAS_AutoApp.Controls;assembly=BPAAS_AutoApp"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Controls.TreeListControl">
+  <ContentView.Content>
+    <StackLayout WidthRequest="300" Margin="0,0,50,0">
+      <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.Resources>
+          <ResourceDictionary>
+            <Style x:Key="SwimLaneTitleStyle" TargetType="Label">
+              <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+              <Setter Property="FontSize" Value="36"/>
+              <Setter Property="TextColor" Value="#555555"/>
+              <Setter Property="VerticalTextAlignment" Value="End"/>
+              <Setter Property="Margin" Value="0,0,0,1"/>
+            </Style>
+          </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="SwimLaneTitle" Style="{StaticResource SwimLaneTitleStyle}"/>
+        <StackLayout x:Name="Content" Grid.Row="1" Padding="2" BackgroundColor="#CCCCCC" VerticalOptions="FillAndExpand" Spacing="1">
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>

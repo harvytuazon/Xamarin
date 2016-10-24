@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+  <Grid RowSpacing="0" BackgroundColor="{StaticResource backgroundColor}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="150" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="75" />
+    </Grid.RowDefinitions>
+    <Frame Grid.Row="0" Padding="0,10,0,20" BackgroundColor="{StaticResource secondaryColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <Image Source="hpe_logo_ctr_wht.png" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+    </Frame>
+    <StackLayout Grid.Row="1" WidthRequest="350" MinimumHeightRequest="350" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Padding="40,0,40,0" >
+      <Label Text="Please optionally provide your e-mail address to receive news and more information about Mobile CSR application." HorizontalOptions="Center" TextColor="Black" FontFamily="{StaticResource MetricWebMedium}" FontSize="16" HorizontalTextAlignment="Center"/>
+      <StackLayout VerticalOptions="Center" Padding="0,10,0,10" WidthRequest="400">
+        <Entry x:Name="emailEntry" Placeholder="Email Address" FontFamily="{StaticResource MetricWebMedium}" BackgroundColor="White"/>
+        <Button Text="Online" Command="{Binding OnlineCommand}" Style="{StaticResource buttonStyle}" />
+        <Button Text="Offline" Command="{Binding OfflineCommand}" Style="{StaticResource buttonStyle}"/>
+      </StackLayout>
+      <Label Text="Your information is strictly for our record keeping purposes and will not be shared with 3rd Parties." HorizontalOptions="Center" TextColor="#aaaaaa" FontFamily="{StaticResource MetricWebMedium}" FontSize="14" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+    </StackLayout>
+    <Grid Padding="40,10,40,10" Grid.Row="2" BackgroundColor="{StaticResource tertiaryColor}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.3*" />
+        <ColumnDefinition Width="0.7*" />
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="0" Grid.Row="0" Command="{Binding SettingsCommand}" Text="" Style="{StaticResource iconButtonStyle}" FontSize="24" VerticalOptions="Center" HorizontalOptions="Start" />
+      <Label Grid.Column="1" Text="©Hewlett Packard Enterprise 2016" TextColor="White" FontSize="12" VerticalOptions="Center" HorizontalOptions="End" />
+    </Grid>
+  </Grid>
+</ContentPage>

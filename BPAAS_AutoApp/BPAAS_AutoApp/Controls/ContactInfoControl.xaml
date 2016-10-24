@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BPAAS_AutoApp.Controls.ContactInfoControl">
+  <ContentView.Content>
+    <StackLayout WidthRequest="350">
+      <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.Resources>
+          <ResourceDictionary>
+            <Style x:Key="SwimLaneTitleStyle" TargetType="Label">
+              <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+              <Setter Property="FontSize" Value="36"/>
+              <Setter Property="TextColor" Value="#555555"/>
+              <Setter Property="VerticalTextAlignment" Value="End"/>
+              <Setter Property="Margin" Value="0,0,0,1"/>
+            </Style>
+          </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"/>
+          <RowDefinition Height="125"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="SwimLaneTitle" Style="{StaticResource SwimLaneTitleStyle}"/>
+        <Grid Grid.Row="1" RowSpacing="0" ColumnSpacing="0" BackgroundColor="{StaticResource primaryColor}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          <Grid.Resources>
+            <ResourceDictionary>
+              <Style x:Key="NameStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="Margin" Value="0,2,0,0"/>
+              </Style>
+              <Style x:Key="CompanyStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+              </Style>
+              <Style x:Key="PositionStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+              </Style>
+            </ResourceDictionary>
+          </Grid.Resources>
+          <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Black" Padding="0">
+            <Image Source="http://www.fropky.com/xlmpdt/Saurabh/2012/apr/16/Real%20Human%20Acrylic%20Painting/humanpaintingsAlexaMeade_BonjourLife_006.jpg" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+          </Frame>
+          <StackLayout Grid.Column="1" Grid.Row="0" Spacing="1" VerticalOptions="Start" Padding="10,5,0,0">
+            <Label Style="{StaticResource NameStyle}" Text="Harvy Tuazon"/>
+            <Label Style="{StaticResource CompanyStyle}" Text="Hewlett Packard"/>
+            <Label Style="{StaticResource PositionStyle}" Text="Developer"/>
+          </StackLayout>
+          <Grid Grid.Column="1" Grid.Row="1" RowSpacing="0" ColumnSpacing="0">
+            <Grid.Resources>
+              <ResourceDictionary>
+                <Style x:Key="iconStyle" TargetType="Button">
+                  <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}"/>
+                  <Setter Property="FontSize" Value="24"/>
+                  <Setter Property="BorderWidth" Value="0"/>
+                  <Setter Property="TextColor" Value="White"/>
+                  <Setter Property="BorderColor" Value="{StaticResource secondaryColor}"/>
+                  <Setter Property="BackgroundColor" Value="{StaticResource secondaryColor}"/>
+                  <Setter Property="HorizontalOptions" Value="Fill"/>
+                  <Setter Property="VerticalOptions" Value="Fill"/>
+                  <Setter Property="Margin" Value="0"/>
+                </Style>
+              </ResourceDictionary>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="&#xf095;" Style="{StaticResource iconStyle}" />
+            <Button Grid.Column="1" Text="&#xf10b;" Style="{StaticResource iconStyle}" />
+            <Button Grid.Column="2" Text="&#xf003;" Style="{StaticResource iconStyle}" />
+            <Button Grid.Column="3" Text="&#xf17e;" Style="{StaticResource iconStyle}" />
+            <Button x:Name="expandCollapseButton"  Grid.Column="4" Text="&#xf077;" Style="{StaticResource iconStyle}"/>
+          </Grid>
+        </Grid>
+        <ScrollView x:Name="moreInfoBase" Grid.Row="2" IsClippedToBounds="True">
+          <StackLayout x:Name="moreInfoPanel" IsClippedToBounds="True" BackgroundColor="{StaticResource tertiaryColor}" Padding="20" WidthRequest="300">
+            <StackLayout.Resources>
+              <ResourceDictionary>
+                <Style x:Key="BulletStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}"/>
+                  <Setter Property="FontSize" Value="20"/>
+                  <Setter Property="TextColor" Value="White"/>
+                </Style>
+                <Style x:Key="EditButtonStyle" TargetType="Button">
+                  <Setter Property="FontFamily" Value="{StaticResource HPBPAASIcons}"/>
+                  <Setter Property="FontSize" Value="22"/>
+                  <Setter Property="TextColor" Value="{StaticResource primaryColor}"/>
+                  <Setter Property="BorderWidth" Value="0"/>
+                  <Setter Property="BorderColor" Value="Transparent"/>
+                  <Setter Property="BackgroundColor" Value="Transparent"/>
+                  <Setter Property="HorizontalOptions" Value="End"/>
+                </Style>
+                <Style x:Key="DescriptionStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource MetricWebLight}"/>
+                  <Setter Property="FontSize" Value="16"/>
+                  <Setter Property="TextColor" Value="White"/>
+                  <Setter Property="Margin" Value="2,0,0,0"/>
+                </Style>
+                <Style x:Key="TitleStyle" TargetType="Label">
+                  <Setter Property="FontFamily" Value="{StaticResource MetricWebMedium}"/>
+                  <Setter Property="FontSize" Value="16"/>
+                  <Setter Property="TextColor" Value="White"/>
+                  <Setter Property="Margin" Value="0,0,-10,0"/>
+                </Style>
+              </ResourceDictionary>
+            </StackLayout.Resources>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+              </Grid.ColumnDefinitions>
+              <StackLayout Grid.Column="0" Spacing="3" VerticalOptions="Start" HorizontalOptions="Start">
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf095;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+02 9026009" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf10b;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+63 9175434841" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf003;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="harvy.tuazon@hpe.com" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf003;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="harvytuazon15@gmail.com" />
+                </StackLayout>
+              </StackLayout>
+              <Button Grid.Column="1" Text="&#xf044;" Style="{StaticResource EditButtonStyle}" />
+            </Grid>
+            <Grid RowSpacing="0" ColumnSpacing="0" Padding="0,10,0,0">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <StackLayout Grid.Column="0" Spacing="1">
+                <Label Style="{StaticResource TitleStyle}" Text="Service Advisor" />
+                <Label Style="{StaticResource TitleStyle}" Text="Jason De Asis" />
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf095;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+02 9026009" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf10b;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+63 9175434841" />
+                </StackLayout>
+              </StackLayout>
+              <StackLayout Grid.Column="1" Spacing="1">
+                <Label Style="{StaticResource TitleStyle}" Text="Service Representative" />
+                <Label Style="{StaticResource TitleStyle}" Text="Joyce Dy" />
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf095;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+02 9026009" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Style="{StaticResource BulletStyle}" Text="&#xf10b;" />
+                  <Label Style="{StaticResource DescriptionStyle}" Text="+63 9175434841" />
+                </StackLayout>
+              </StackLayout>
+            </Grid>
+          </StackLayout>
+        </ScrollView>
+      </Grid>
+    </StackLayout>
+  </ContentView.Content>
+</ContentView>
